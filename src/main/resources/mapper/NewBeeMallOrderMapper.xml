@@ -120,7 +120,7 @@ Copyright (c) 2020 十三 all rights reserved.
     values (#{orderId,jdbcType=BIGINT}, #{orderNo,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, 
       #{totalPrice,jdbcType=INTEGER}, #{payStatus,jdbcType=TINYINT}, #{payType,jdbcType=TINYINT}, 
       #{payTime,jdbcType=TIMESTAMP}, #{orderStatus,jdbcType=TINYINT}, #{extraInfo,jdbcType=VARCHAR}, 
-      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      #{isDeleted,jdbcType=TINYINT}, now(), #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
     <insert id="insertSelective" useGeneratedKeys="true" keyProperty="orderId"
@@ -157,9 +157,9 @@ Copyright (c) 2020 十三 all rights reserved.
             <if test="isDeleted != null">
                 is_deleted,
             </if>
-            <if test="createTime != null">
+
                 create_time,
-            </if>
+
             <if test="updateTime != null">
                 update_time,
             </if>
@@ -195,9 +195,7 @@ Copyright (c) 2020 十三 all rights reserved.
             <if test="isDeleted != null">
                 #{isDeleted,jdbcType=TINYINT},
             </if>
-            <if test="createTime != null">
-                #{createTime,jdbcType=TIMESTAMP},
-            </if>
+            now(),
             <if test="updateTime != null">
                 #{updateTime,jdbcType=TIMESTAMP},
             </if>

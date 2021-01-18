@@ -189,7 +189,7 @@ Copyright (c) 2020 十三 all rights reserved.
     values (#{goodsId,jdbcType=BIGINT}, #{goodsName,jdbcType=VARCHAR}, #{goodsIntro,jdbcType=VARCHAR}, 
       #{goodsCoverImg,jdbcType=VARCHAR}, #{goodsCarousel,jdbcType=VARCHAR}, #{originalPrice,jdbcType=INTEGER}, 
       #{sellingPrice,jdbcType=INTEGER}, #{stockNum,jdbcType=INTEGER}, #{tag,jdbcType=VARCHAR}, 
-      #{goodsSellStatus,jdbcType=TINYINT}, #{createUser,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{goodsSellStatus,jdbcType=TINYINT}, #{createUser,jdbcType=INTEGER},  now(),
       #{updateUser,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{goodsDetailContent,jdbcType=LONGVARCHAR}
       )
   </insert>
@@ -232,9 +232,9 @@ Copyright (c) 2020 十三 all rights reserved.
             <if test="createUser != null">
                 create_user,
             </if>
-            <if test="createTime != null">
+
                 create_time,
-            </if>
+
             <if test="updateUser != null">
                 update_user,
             </if>
@@ -282,9 +282,7 @@ Copyright (c) 2020 十三 all rights reserved.
             <if test="createUser != null">
                 #{createUser,jdbcType=INTEGER},
             </if>
-            <if test="createTime != null">
-                #{createTime,jdbcType=TIMESTAMP},
-            </if>
+            now(),
             <if test="updateUser != null">
                 #{updateUser,jdbcType=INTEGER},
             </if>

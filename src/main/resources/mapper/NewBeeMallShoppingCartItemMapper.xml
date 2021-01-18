@@ -89,7 +89,7 @@ Copyright (c) 2020 十三 all rights reserved.
       goods_count, is_deleted, create_time, 
       update_time)
     values (#{cartItemId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{goodsId,jdbcType=BIGINT}, 
-      #{goodsCount,jdbcType=INTEGER}, #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{goodsCount,jdbcType=INTEGER}, #{isDeleted,jdbcType=TINYINT}, now(),
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
     <insert id="insertSelective" parameterType="ltd.newbee.mall.entity.NewBeeMallShoppingCartItem">
@@ -110,9 +110,8 @@ Copyright (c) 2020 十三 all rights reserved.
             <if test="isDeleted != null">
                 is_deleted,
             </if>
-            <if test="createTime != null">
-                create_time,
-            </if>
+
+              create_time,
             <if test="updateTime != null">
                 update_time,
             </if>
@@ -133,9 +132,9 @@ Copyright (c) 2020 十三 all rights reserved.
             <if test="isDeleted != null">
                 #{isDeleted,jdbcType=TINYINT},
             </if>
-            <if test="createTime != null">
-                #{createTime,jdbcType=TIMESTAMP},
-            </if>
+
+               now(),
+
             <if test="updateTime != null">
                 #{updateTime,jdbcType=TIMESTAMP},
             </if>
